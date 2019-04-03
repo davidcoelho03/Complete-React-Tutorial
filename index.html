@@ -16,20 +16,47 @@
   </head>
   <body>
     <div id="app"></div>
-    <script type="text/babel">
+    
+    <script type="text/babel">      
       class App extends React.Component{ 
         state = { 
-          name: 'Crystal', age: 30 
+          name: 'Crystal', 
+          age: 30 
         } 
-        
+
+        // default argument "e"
+        handleClick = (e) => {
+          //console.log(e.target);
+
+          //// BAD PRACTISE. DON'T DO IT
+          //this.state.name = 'batatas';
+
+          this.setState({ 
+            name: 'Yoshi',
+            age: 34
+          });
+        } 
+        handleMouseOver(e){
+          console.log(e.target, e.pageX);
+        }
+        handleCopy(e){
+          console.log('Try being original for once');
+        }
         render() {
-           return ( 
-             <div className="app-content"> 
-              <h1>Hey Ninjas</h1> <p>My name is: { this.state.name } and I am { this.state.age } </p> </div> ); 
-            } 
-          } 
+          return ( 
+              <div className="app-content"> 
+                <h1>Hey Ninjas</h1> 
+                <p>My name is: { this.state.name } and I am { this.state.age } </p>
+                <button onClick={this.handleClick}>Click Me</button>
+                <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                <p onCopy={this.handleCopy}>What we think, we become</p>
+              </div> 
+          )
+        } 
+      } 
           
-        ReactDOM.render(<App/>, document.getElementById('app'));
+      ReactDOM.render(<App/>, document.getElementById('app'));
     </script>
-  </body>
+  
+</body>
 </html>
