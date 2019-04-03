@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Ninjas = ({ ninjas }) => {
+const Ninjas = ({ ninjas, deleteNinja}) => {
   //const  { ninjas } = props; // if we had props in arguments
 
 /*   const ninjaList = ninjas.map(ninja => {
@@ -19,6 +19,8 @@ const Ninjas = ({ ninjas }) => {
         <div>Name: {ninja.name}</div>
         <div>Age: {ninja.age}</div>
         <div>Belt: {ninja.belt}</div>
+        {/* IF WE CALL THE deleteNinja function LIKE THIS IT DOESN'T INVOKE ITSELF AUTOMATICALY AFTER LOADING THE PAGE. deleteNinja(ninja.id) -> wrong way */}
+        <button onClick={() => {deleteNinja(ninja.id)}}>Delete Ninja</button>
       </div>
     ) : null;
   }); 
