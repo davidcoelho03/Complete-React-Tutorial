@@ -5,9 +5,9 @@ const Navbar = (props) => {
 /*   // without withRouter prints empty object because NavBar isnt included in ROUTER on app.js
   console.log(props); */
   
-  setTimeout(() => {
+/*   setTimeout(() => {
     props.history.push('./about');
-  }, 2000);
+  }, 2000); */
   return (
     <nav className="nav-wrapper red darken-3">
       <div className="container">
