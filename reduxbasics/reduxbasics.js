@@ -11,7 +11,13 @@ const initState = {
 // state -> state of the store
 //need to create initial state
 function myreducer(state = initState, action) {
-  console.log(action, state);
+
+  if(action.type === 'ADD_TODO'){
+    return {
+      // returning object with updated todos
+      todos: [...state.todos, action.todo]
+    }
+  }
 }
 
 // this creates the store and uses the myreducer as the Reducer
