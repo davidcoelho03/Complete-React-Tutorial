@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import axios from 'axios'
 import { connect } from 'react-redux'
+import { deletePost } from '../actions/postActions';
 
 export class Post extends Component {
     // state = {
@@ -50,14 +51,14 @@ const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.post_id;
 
     return {
-        post: state.posts.find(post => post.id == id)
+        post: state.posts.find(post => post.id === id)
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         // function with action inside it and is going to be attached to the props
-        deletePost: (id) => { dispatch({type: 'DELETE_POST', id: id}) }
+        deletePost: (id) => { dispatch(deletePost(id)) }
     }
 }
 
