@@ -8,6 +8,17 @@ const initState = {
 }
 
 const rootReducer = (state = initState, action) => {
+    console.log(state);
+    console.log(action);
+
+    if(action.type === 'DELETE_POST'){
+        return {
+            ...state,
+            posts: state.posts.filter(post => action.id !== post.id)
+        }
+    }
+
+    // must return here because it's called once without any action. It was giving an error
     return state;
 }
 
